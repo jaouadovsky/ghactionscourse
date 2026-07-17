@@ -4,10 +4,11 @@ on:
       - main
       - "release/**"
     paths:
-      "src/**"
+      - "src/**"
   pull_request:
-    - main
-    - "release/**"
+    branches:
+      - main
+      - "release/**"
 
 jobs:
   test:
