@@ -14,11 +14,19 @@ jobs:
     #   run: echo "API_KEY=12345" >> $GITHUB_ENV
     # - name: Use API key
     #   run: echo "Using API Key $API_KEY"
+    #steps:
+    #- name: Check if a file exists
+    #  run: |
+    #    if [ -f "config.yaml" ]; then
+    #      echo "::error::config.yaml exists"
+    #    else
+    #      echo "::error::config.yaml is missing"
+    #    fi
     steps:
-    - name: Check if a file exists
+    - name: Set API key
+      run: echo "API_KEY=12345" >> $GITHUB_ENV
+    - name: Use API key
       run: |
-        if [ -f "config.yaml" ]; then
-          echo "::error::config.yaml exists"
-        else
-          echo "::error::config.yaml is missing"
-        fi
+        echo "::add-mask::$API_KEY"
+        echo "Uning API key $API_KEY"
+      
